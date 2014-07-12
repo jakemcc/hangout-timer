@@ -5,7 +5,8 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2268"]
                  [sablono "0.2.17"]
-                 [om "0.6.4"]]
+                 [om "0.6.4"]
+                 [cljs-uuid "0.0.4"]]
 
   :plugins [[lein-cljsbuild "1.0.3"]]
 
@@ -18,11 +19,16 @@
                                         :output-to "main.js"
                                         :output-dir "out"
                                         :optimizations :none
-                                        :source-map true}}
+                                        :source-map true
+                                        :externs ["hangout.js"]
+                                        :closure-warnings {:externs-validation :off
+                                                           :non-standard-jsdoc :off}}}
                        :release {:source-paths ["src"]
                                  :compiler {
                                             :output-to "prod-main.js"
                                             :optimizations :advanced
                                             :pretty-print false
                                             :preamble ["react/react.min.js"]
-                                            :externs ["react/externs/react.js"]}}}})
+                                            :externs ["react/externs/react.js" "hangout.js"]
+                                            :closure-warnings {:externs-validation :off
+                                                               :non-standard-jsdoc :off}}}}})

@@ -2,9 +2,15 @@
   (:require [om.core :as om :include-macros true]
             [sablono.core :as html :refer-macros [html]]
             [goog.Timer :as gtimer]
-            [goog.events :as events]))
+            [goog.events :as events]
+            [cljs-uuid.core :as uuid]))
 
 (enable-console-print!)
+
+(def me (uuid/make-random))
+
+(defn submit-delta [m]
+  (gapi.hangout.data/submitDelta m))
 
 (def app-state (atom {}))
 
@@ -43,6 +49,15 @@
           (n-minute-button 3)
           ])))
 
+(defn increment-timer []
+  (let [timer (goog.Timer. 2000)]
+    (.start timer)
+    (events/listen timer goog.Timer/TICK (fn [& _]
+                                           (submit-delta (merge {:me me}
+                                                                @app-state)))))
+  )
+
 (defn ^:export main []
   (start-timer)
+  (gapi.hangout.data.onStateChanged/add (fn [data] (println data)))
   (om/root widget app-state {:target js/document.body}))
