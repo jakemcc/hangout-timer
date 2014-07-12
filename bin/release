@@ -1,0 +1,6 @@
+#!/bin/bash
+
+tmpdir=$(mktemp -d /tmp/ht.XXXX)
+cp index.html prod-main.js ${tmpdir}
+git checkout gh-pages
+cp ${tmpdir}/* .
