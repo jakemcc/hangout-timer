@@ -23828,8 +23828,7 @@ hangout_timer.core.now_plus_n_minutes = function(a) {
   return 6E4 * a + goog.now();
 };
 hangout_timer.core.button = function(a, b) {
-  new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "button", "button", 1456579943), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), b], null)], null);
-  return a;
+  return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "button", "button", 1456579943), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), b], null), a], null);
 };
 hangout_timer.core.n_minute_button = function(a) {
   return hangout_timer.core.button.call(null, "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a) + "minutes", function(b) {
