@@ -23195,9 +23195,6 @@ om.core.rendering_QMARK_ = function() {
 var hangout_timer = {core:{}};
 cljs.core.enable_console_print_BANG_.call(null);
 hangout_timer.core.me = cljs_uuid.core.make_random.call(null);
-hangout_timer.core.submit_delta = function(a) {
-  return gapi.hangout.data.submitDelta.call(null, a);
-};
 hangout_timer.core.app_state = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY);
 hangout_timer.core.update_counter = function(a) {
   var b;
@@ -23257,6 +23254,11 @@ hangout_timer.core.widget = function widget(b) {
     return new hangout_timer.core.t6538(b, d, e);
   });
   return new hangout_timer.core.t6538(b, widget, null);
+};
+hangout_timer.core.submit_delta = function(a) {
+  cljs.core.println.call(null, "sending data");
+  gapi.hangout.data.submitDelta(a);
+  return cljs.core.println.call(null, "sent data");
 };
 hangout_timer.core.increment_timer = function() {
   var a = new goog.Timer(2E3);
