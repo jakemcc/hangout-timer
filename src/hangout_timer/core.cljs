@@ -42,7 +42,8 @@
   (om/component
    (html [:div
           [:p "Simple Timers!"]
-          [:p (pr-str data)]
+          (for [t (vals data)]
+            [:p (pr-str t)])
           (n-minute-button 0.1)
           (n-minute-button 1)
           (n-minute-button 3)
