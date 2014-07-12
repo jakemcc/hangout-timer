@@ -41,10 +41,10 @@
             (println "Starting" n "minute timer")
             (update-counter (now-plus-n-minutes n)))))
 
-(defn take-control []
+(defn take-control [& _]
   (swap! app-state assoc :time-master me))
 
-(defn relinquish-control []
+(defn relinquish-control [& _]
   (swap! app-state dissoc :time-master))
 
 (defn widget [data]
