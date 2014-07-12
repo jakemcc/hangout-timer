@@ -18930,7 +18930,7 @@ sablono.core.include_js = function(a) {
 sablono.core.include_react = function() {
   return sablono.core.include_js.call(null, "http://fb.me/react-0.9.0.js");
 };
-sablono.core.link_to7747 = function() {
+sablono.core.link_to7756 = function() {
   var a = function(a, b) {
     return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", -2123407586), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "href", "href", -793805698), sablono.util.as_str.call(null, a)], null), b], null);
   }, b = function(b, d) {
@@ -18947,8 +18947,8 @@ sablono.core.link_to7747 = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }();
-sablono.core.link_to = sablono.core.wrap_attrs.call(null, sablono.core.link_to7747);
-sablono.core.mail_to7749 = function() {
+sablono.core.link_to = sablono.core.wrap_attrs.call(null, sablono.core.link_to7756);
+sablono.core.mail_to7758 = function() {
   var a = function(a, b) {
     var e = cljs.core.nth.call(null, b, 0, null), f = cljs.core.PersistentVector, g = cljs.core.PersistentVector.EMPTY_NODE, h = new cljs.core.Keyword(null, "a", "a", -2123407586), k = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "href", "href", -793805698), "mailto:" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a)], null);
     e = cljs.core.truth_(e) ? e : a;
@@ -18967,8 +18967,8 @@ sablono.core.mail_to7749 = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }();
-sablono.core.mail_to = sablono.core.wrap_attrs.call(null, sablono.core.mail_to7749);
-sablono.core.unordered_list7754 = function(a) {
+sablono.core.mail_to = sablono.core.wrap_attrs.call(null, sablono.core.mail_to7758);
+sablono.core.unordered_list7763 = function(a) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ul", "ul", -1349521403), function() {
     return function c(a) {
       return new cljs.core.LazySeq(null, function() {
@@ -19001,8 +19001,8 @@ sablono.core.unordered_list7754 = function(a) {
     }.call(null, a);
   }()], null);
 };
-sablono.core.unordered_list = sablono.core.wrap_attrs.call(null, sablono.core.unordered_list7754);
-sablono.core.ordered_list7764 = function(a) {
+sablono.core.unordered_list = sablono.core.wrap_attrs.call(null, sablono.core.unordered_list7763);
+sablono.core.ordered_list7773 = function(a) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ol", "ol", 932524051), function() {
     return function c(a) {
       return new cljs.core.LazySeq(null, function() {
@@ -19035,8 +19035,8 @@ sablono.core.ordered_list7764 = function(a) {
     }.call(null, a);
   }()], null);
 };
-sablono.core.ordered_list = sablono.core.wrap_attrs.call(null, sablono.core.ordered_list7764);
-sablono.core.image7774 = function() {
+sablono.core.ordered_list = sablono.core.wrap_attrs.call(null, sablono.core.ordered_list7773);
+sablono.core.image7783 = function() {
   var a = null, b = function(a) {
     return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "img", "img", 1442687358), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "src", "src", -1651076051), sablono.util.as_str.call(null, a)], null)], null);
   }, c = function(a, b) {
@@ -19054,7 +19054,7 @@ sablono.core.image7774 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.image = sablono.core.wrap_attrs.call(null, sablono.core.image7774);
+sablono.core.image = sablono.core.wrap_attrs.call(null, sablono.core.image7783);
 sablono.core._STAR_group_STAR_ = cljs.core.PersistentVector.EMPTY;
 sablono.core.make_name = function(a) {
   return cljs.core.reduce.call(null, function(a, c) {
@@ -19070,7 +19070,7 @@ sablono.core.input_field_STAR_ = function(a, b, c) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1174270348), a, new cljs.core.Keyword(null, "name", "name", 1843675177), sablono.core.make_name.call(null, b), new cljs.core.Keyword(null, "id", "id", -1388402092), sablono.core.make_id.call(null, b), new cljs.core.Keyword(null, "value", "value", 305978217), c], null)], 
   null);
 };
-sablono.core.color_field7779 = function() {
+sablono.core.color_field7788 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19088,8 +19088,8 @@ sablono.core.color_field7779 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.color_field = sablono.core.wrap_attrs.call(null, sablono.core.color_field7779);
-sablono.core.date_field7780 = function() {
+sablono.core.color_field = sablono.core.wrap_attrs.call(null, sablono.core.color_field7788);
+sablono.core.date_field7789 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19107,8 +19107,8 @@ sablono.core.date_field7780 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.date_field = sablono.core.wrap_attrs.call(null, sablono.core.date_field7780);
-sablono.core.datetime_field7781 = function() {
+sablono.core.date_field = sablono.core.wrap_attrs.call(null, sablono.core.date_field7789);
+sablono.core.datetime_field7790 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19126,8 +19126,8 @@ sablono.core.datetime_field7781 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.datetime_field = sablono.core.wrap_attrs.call(null, sablono.core.datetime_field7781);
-sablono.core.datetime_local_field7782 = function() {
+sablono.core.datetime_field = sablono.core.wrap_attrs.call(null, sablono.core.datetime_field7790);
+sablono.core.datetime_local_field7791 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19145,8 +19145,8 @@ sablono.core.datetime_local_field7782 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.datetime_local_field = sablono.core.wrap_attrs.call(null, sablono.core.datetime_local_field7782);
-sablono.core.email_field7783 = function() {
+sablono.core.datetime_local_field = sablono.core.wrap_attrs.call(null, sablono.core.datetime_local_field7791);
+sablono.core.email_field7792 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19164,8 +19164,8 @@ sablono.core.email_field7783 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.email_field = sablono.core.wrap_attrs.call(null, sablono.core.email_field7783);
-sablono.core.file_field7784 = function() {
+sablono.core.email_field = sablono.core.wrap_attrs.call(null, sablono.core.email_field7792);
+sablono.core.file_field7793 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19183,8 +19183,8 @@ sablono.core.file_field7784 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.file_field = sablono.core.wrap_attrs.call(null, sablono.core.file_field7784);
-sablono.core.hidden_field7785 = function() {
+sablono.core.file_field = sablono.core.wrap_attrs.call(null, sablono.core.file_field7793);
+sablono.core.hidden_field7794 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19202,8 +19202,8 @@ sablono.core.hidden_field7785 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.hidden_field = sablono.core.wrap_attrs.call(null, sablono.core.hidden_field7785);
-sablono.core.month_field7786 = function() {
+sablono.core.hidden_field = sablono.core.wrap_attrs.call(null, sablono.core.hidden_field7794);
+sablono.core.month_field7795 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19221,8 +19221,8 @@ sablono.core.month_field7786 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.month_field = sablono.core.wrap_attrs.call(null, sablono.core.month_field7786);
-sablono.core.number_field7787 = function() {
+sablono.core.month_field = sablono.core.wrap_attrs.call(null, sablono.core.month_field7795);
+sablono.core.number_field7796 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19240,8 +19240,8 @@ sablono.core.number_field7787 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.number_field = sablono.core.wrap_attrs.call(null, sablono.core.number_field7787);
-sablono.core.password_field7788 = function() {
+sablono.core.number_field = sablono.core.wrap_attrs.call(null, sablono.core.number_field7796);
+sablono.core.password_field7797 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19259,8 +19259,8 @@ sablono.core.password_field7788 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.password_field = sablono.core.wrap_attrs.call(null, sablono.core.password_field7788);
-sablono.core.range_field7789 = function() {
+sablono.core.password_field = sablono.core.wrap_attrs.call(null, sablono.core.password_field7797);
+sablono.core.range_field7798 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19278,8 +19278,8 @@ sablono.core.range_field7789 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.range_field = sablono.core.wrap_attrs.call(null, sablono.core.range_field7789);
-sablono.core.search_field7790 = function() {
+sablono.core.range_field = sablono.core.wrap_attrs.call(null, sablono.core.range_field7798);
+sablono.core.search_field7799 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19297,8 +19297,8 @@ sablono.core.search_field7790 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.search_field = sablono.core.wrap_attrs.call(null, sablono.core.search_field7790);
-sablono.core.tel_field7791 = function() {
+sablono.core.search_field = sablono.core.wrap_attrs.call(null, sablono.core.search_field7799);
+sablono.core.tel_field7800 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19316,8 +19316,8 @@ sablono.core.tel_field7791 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.tel_field = sablono.core.wrap_attrs.call(null, sablono.core.tel_field7791);
-sablono.core.text_field7792 = function() {
+sablono.core.tel_field = sablono.core.wrap_attrs.call(null, sablono.core.tel_field7800);
+sablono.core.text_field7801 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19335,8 +19335,8 @@ sablono.core.text_field7792 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.text_field = sablono.core.wrap_attrs.call(null, sablono.core.text_field7792);
-sablono.core.time_field7793 = function() {
+sablono.core.text_field = sablono.core.wrap_attrs.call(null, sablono.core.text_field7801);
+sablono.core.time_field7802 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19354,8 +19354,8 @@ sablono.core.time_field7793 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.time_field = sablono.core.wrap_attrs.call(null, sablono.core.time_field7793);
-sablono.core.url_field7794 = function() {
+sablono.core.time_field = sablono.core.wrap_attrs.call(null, sablono.core.time_field7802);
+sablono.core.url_field7803 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19373,8 +19373,8 @@ sablono.core.url_field7794 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.url_field = sablono.core.wrap_attrs.call(null, sablono.core.url_field7794);
-sablono.core.week_field7795 = function() {
+sablono.core.url_field = sablono.core.wrap_attrs.call(null, sablono.core.url_field7803);
+sablono.core.week_field7804 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19392,9 +19392,9 @@ sablono.core.week_field7795 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.week_field = sablono.core.wrap_attrs.call(null, sablono.core.week_field7795);
+sablono.core.week_field = sablono.core.wrap_attrs.call(null, sablono.core.week_field7804);
 sablono.core.file_upload = sablono.core.file_field;
-sablono.core.check_box7796 = function() {
+sablono.core.check_box7805 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(b, c) {
@@ -19418,8 +19418,8 @@ sablono.core.check_box7796 = function() {
   a.cljs$core$IFn$_invoke$arity$3 = d;
   return a;
 }();
-sablono.core.check_box = sablono.core.wrap_attrs.call(null, sablono.core.check_box7796);
-sablono.core.radio_button7797 = function() {
+sablono.core.check_box = sablono.core.wrap_attrs.call(null, sablono.core.check_box7805);
+sablono.core.radio_button7806 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(b, c) {
@@ -19443,8 +19443,8 @@ sablono.core.radio_button7797 = function() {
   a.cljs$core$IFn$_invoke$arity$3 = d;
   return a;
 }();
-sablono.core.radio_button = sablono.core.wrap_attrs.call(null, sablono.core.radio_button7797);
-sablono.core.select_options7798 = function() {
+sablono.core.radio_button = sablono.core.wrap_attrs.call(null, sablono.core.radio_button7806);
+sablono.core.select_options7807 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(b, c) {
@@ -19495,8 +19495,8 @@ sablono.core.select_options7798 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.select_options = sablono.core.wrap_attrs.call(null, sablono.core.select_options7798);
-sablono.core.drop_down7816 = function() {
+sablono.core.select_options = sablono.core.wrap_attrs.call(null, sablono.core.select_options7807);
+sablono.core.drop_down7825 = function() {
   var a = null, b = function(b, c) {
     return a.call(null, b, c, null);
   }, c = function(a, b, c) {
@@ -19514,8 +19514,8 @@ sablono.core.drop_down7816 = function() {
   a.cljs$core$IFn$_invoke$arity$3 = c;
   return a;
 }();
-sablono.core.drop_down = sablono.core.wrap_attrs.call(null, sablono.core.drop_down7816);
-sablono.core.text_area7817 = function() {
+sablono.core.drop_down = sablono.core.wrap_attrs.call(null, sablono.core.drop_down7825);
+sablono.core.text_area7826 = function() {
   var a = null, b = function(b) {
     return a.call(null, b, null);
   }, c = function(a, b) {
@@ -19533,20 +19533,20 @@ sablono.core.text_area7817 = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a;
 }();
-sablono.core.text_area = sablono.core.wrap_attrs.call(null, sablono.core.text_area7817);
-sablono.core.label7818 = function(a, b) {
+sablono.core.text_area = sablono.core.wrap_attrs.call(null, sablono.core.text_area7826);
+sablono.core.label7827 = function(a, b) {
   return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "label", "label", 1718410804), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "htmlFor", "htmlFor", -1050291720), sablono.core.make_id.call(null, a)], null), b], null);
 };
-sablono.core.label = sablono.core.wrap_attrs.call(null, sablono.core.label7818);
-sablono.core.submit_button7819 = function(a) {
+sablono.core.label = sablono.core.wrap_attrs.call(null, sablono.core.label7827);
+sablono.core.submit_button7828 = function(a) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), "submit", new cljs.core.Keyword(null, "value", "value", 305978217), a], null)], null);
 };
-sablono.core.submit_button = sablono.core.wrap_attrs.call(null, sablono.core.submit_button7819);
-sablono.core.reset_button7820 = function(a) {
+sablono.core.submit_button = sablono.core.wrap_attrs.call(null, sablono.core.submit_button7828);
+sablono.core.reset_button7829 = function(a) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), "reset", new cljs.core.Keyword(null, "value", "value", 305978217), a], null)], null);
 };
-sablono.core.reset_button = sablono.core.wrap_attrs.call(null, sablono.core.reset_button7820);
-sablono.core.form_to7821 = function() {
+sablono.core.reset_button = sablono.core.wrap_attrs.call(null, sablono.core.reset_button7829);
+sablono.core.form_to7830 = function() {
   var a = function(a, b) {
     var e = cljs.core.nth.call(null, a, 0, null), f = cljs.core.nth.call(null, a, 1, null), g = clojure.string.upper_case.call(null, cljs.core.name.call(null, e)), f = sablono.util.to_uri.call(null, f);
     return cljs.core.vec.call(null, cljs.core.concat.call(null, cljs.core.contains_QMARK_.call(null, new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "get", "get", 1683182755), null, new cljs.core.Keyword(null, "post", "post", 269697687), null], null), null), e) ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "form", "form", -1624062471), new cljs.core.PersistentArrayMap(null, 
@@ -19566,7 +19566,7 @@ sablono.core.form_to7821 = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b;
 }();
-sablono.core.form_to = sablono.core.wrap_attrs.call(null, sablono.core.form_to7821);
+sablono.core.form_to = sablono.core.wrap_attrs.call(null, sablono.core.form_to7830);
 var om = {dom:{}};
 om.dom.a = function() {
   var a = function(a, b) {
@@ -23833,28 +23833,62 @@ hangout_timer.core.n_minute_button = function(a) {
   }], null), "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a) + " minutes"], null);
 };
 hangout_timer.core.widget = function widget(b) {
-  "undefined" === typeof hangout_timer.core.t6574 && (hangout_timer.core.t6574 = function(b, d, e) {
+  "undefined" === typeof hangout_timer.core.t6578 && (hangout_timer.core.t6578 = function(b, d, e) {
     this.data = b;
     this.widget = d;
-    this.meta6575 = e;
+    this.meta6579 = e;
     this.cljs$lang$protocol_mask$partition1$ = 0;
     this.cljs$lang$protocol_mask$partition0$ = 393216;
-  }, hangout_timer.core.t6574.cljs$lang$type = !0, hangout_timer.core.t6574.cljs$lang$ctorStr = "hangout-timer.core/t6574", hangout_timer.core.t6574.cljs$lang$ctorPrWriter = function(b, d, e) {
-    return cljs.core._write.call(null, d, "hangout-timer.core/t6574");
-  }, hangout_timer.core.t6574.prototype.om$core$IRender$ = !0, hangout_timer.core.t6574.prototype.om$core$IRender$render$arity$1 = function(b) {
-    var d = this;
-    return React.DOM.div(null, React.DOM.p(null, "Simple Timers!"), function() {
-      var b = cljs.core.pr_str.call(null, d.data);
-      return cljs.core.apply.call(null, React.DOM.p, cljs.core.map_QMARK_.call(null, b) ? sablono.interpreter.attributes.call(null, b) : null, cljs.core.remove.call(null, cljs.core.nil_QMARK_, cljs.core.map_QMARK_.call(null, b) ? cljs.core.PersistentVector.EMPTY : new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null, b)], null)));
-    }(), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, .1)), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, 1)), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, 3)));
-  }, hangout_timer.core.t6574.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-    return this.meta6575;
-  }, hangout_timer.core.t6574.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, d) {
-    return new hangout_timer.core.t6574(this.data, this.widget, d);
-  }, hangout_timer.core.__GT_t6574 = function(b, d, e) {
-    return new hangout_timer.core.t6574(b, d, e);
+  }, hangout_timer.core.t6578.cljs$lang$type = !0, hangout_timer.core.t6578.cljs$lang$ctorStr = "hangout-timer.core/t6578", hangout_timer.core.t6578.cljs$lang$ctorPrWriter = function(b, d, e) {
+    return cljs.core._write.call(null, d, "hangout-timer.core/t6578");
+  }, hangout_timer.core.t6578.prototype.om$core$IRender$ = !0, hangout_timer.core.t6578.prototype.om$core$IRender$render$arity$1 = function(b) {
+    var d = this, e = this;
+    return React.DOM.div(null, React.DOM.p(null, "Simple Timers!"), cljs.core.into_array.call(null, function() {
+      return function(b) {
+        return function h(c) {
+          return new cljs.core.LazySeq(null, function(b) {
+            return function() {
+              for (;;) {
+                var b = cljs.core.seq.call(null, c);
+                if (b) {
+                  if (cljs.core.chunked_seq_QMARK_.call(null, b)) {
+                    var d = cljs.core.chunk_first.call(null, b), e = cljs.core.count.call(null, d), f = cljs.core.chunk_buffer.call(null, e);
+                    return function() {
+                      for (var b = 0;;) {
+                        if (b < e) {
+                          var c = cljs.core._nth.call(null, d, b);
+                          cljs.core.chunk_append.call(null, f, function() {
+                            var b = cljs.core.pr_str.call(null, c);
+                            return cljs.core.apply.call(null, React.DOM.p, cljs.core.map_QMARK_.call(null, b) ? sablono.interpreter.attributes.call(null, b) : null, cljs.core.remove.call(null, cljs.core.nil_QMARK_, cljs.core.map_QMARK_.call(null, b) ? cljs.core.PersistentVector.EMPTY : new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null, b)], null)));
+                          }());
+                          b += 1;
+                        } else {
+                          return!0;
+                        }
+                      }
+                    }() ? cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), h.call(null, cljs.core.chunk_rest.call(null, b))) : cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, f), null);
+                  }
+                  var l = cljs.core.first.call(null, b);
+                  return cljs.core.cons.call(null, function() {
+                    var b = cljs.core.pr_str.call(null, l);
+                    return cljs.core.apply.call(null, React.DOM.p, cljs.core.map_QMARK_.call(null, b) ? sablono.interpreter.attributes.call(null, b) : null, cljs.core.remove.call(null, cljs.core.nil_QMARK_, cljs.core.map_QMARK_.call(null, b) ? cljs.core.PersistentVector.EMPTY : new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null, b)], null)));
+                  }(), h.call(null, cljs.core.rest.call(null, b)));
+                }
+                return null;
+              }
+            };
+          }(b), null, null);
+        };
+      }(e).call(null, cljs.core.vals.call(null, d.data));
+    }()), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, .1)), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, 1)), sablono.interpreter.interpret.call(null, hangout_timer.core.n_minute_button.call(null, 3)));
+  }, hangout_timer.core.t6578.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+    return this.meta6579;
+  }, hangout_timer.core.t6578.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, d) {
+    return new hangout_timer.core.t6578(this.data, this.widget, d);
+  }, hangout_timer.core.__GT_t6578 = function(b, d, e) {
+    return new hangout_timer.core.t6578(b, d, e);
   });
-  return new hangout_timer.core.t6574(b, widget, null);
+  return new hangout_timer.core.t6578(b, widget, null);
 };
 hangout_timer.core.submit_delta = function(a) {
   gapi.hangout.data.setValue("cljs", cljs.core.pr_str.call(null, a));
@@ -23890,6 +23924,9 @@ hangout_timer.core.main = function() {
   cljs.core.println.call(null, hangout_timer.core.me);
   hangout_timer.core.start_timer.call(null);
   hangout_timer.core.increment_timer.call(null);
+  gapi.hangout.data.onStateChanged.add(function(a) {
+    return cljs.core.println.call(null, a);
+  });
   return om.core.root.call(null, hangout_timer.core.widget, hangout_timer.core.app_state, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "target", "target", 253001721), document.body], null));
 };
 goog.exportSymbol("hangout_timer.core.main", hangout_timer.core.main);
