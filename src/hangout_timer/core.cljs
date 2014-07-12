@@ -10,7 +10,9 @@
 
 (defn update-counter [expiry]
   (let [seconds-remaining (max 0 (quot (- expiry (goog.now)) 1000))]
-    (swap! app-state assoc expiry seconds-remaining)))
+    (if (zero? seconds-remaining)
+      (swap! app-state dissoc expiry)
+      (swap! app-state assoc expiry seconds-remaining))))
 
 (defn update-counters []
   (doseq [expiry (keys @app-state)]
@@ -36,6 +38,7 @@
    (html [:div
           [:p "Simple Timers!"]
           [:p (pr-str data)]
+          (n-minute-button 0.1)
           (n-minute-button 1)
           (n-minute-button 3)
           ])))
