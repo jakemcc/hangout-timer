@@ -10,7 +10,7 @@
   <body>
 
   <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
-  <script src="//jakemcc.github.io/hangout-timer/main.js"></script>
+  <script src="//jakemcc.github.io/hangout-timer/prod-main.js"></script>
 
   <script>
     function init() {
