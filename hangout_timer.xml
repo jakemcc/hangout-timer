@@ -18,7 +18,7 @@
   gapi.hangout.onApiReady.add(
       function(eventObj) {
         if (eventObj.isApiReady) {
-        hangout_timer.main()
+        hangout_timer.core.main()
         }
       });
    }
