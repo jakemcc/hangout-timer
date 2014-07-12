@@ -60,8 +60,7 @@
   (let [timer (goog.Timer. 2000)]
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
-                                           (println (read-data))
-                                           (submit-delta {"aseot" 5})))))
+                                           (submit-delta {"aseot" me})))))
 
 (defn ^:export main []
   (println me)
