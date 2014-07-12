@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Module>
+  <ModulePrefs title="Hangout Timer">
+    <Require feature="rpc"/>
+    <Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html"><![CDATA[
+  <!DOCTYPE html>
+  <body>
+  <script type="text/javascript" src="//jakemcc.github.io/hangout-timer/main.js></script>
+  </body>
+  </html>
+  ]]></Content>
+</Module>
