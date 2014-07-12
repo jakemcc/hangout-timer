@@ -49,7 +49,7 @@
 
 (defn submit-delta [m]
   (println "sending data")
-  (.submitDelta gapi.hangout.data (reduce-kv (fn [r k v] (assoc r (str k) (str v))) {} m))
+  (.submitDelta gapi.hangout.data (cljs->js (reduce-kv (fn [r k v] (assoc r (str k) (str v))) {} m)))
   (println "sent data"))
 
 (defn increment-timer []
