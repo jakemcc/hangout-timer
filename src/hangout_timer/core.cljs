@@ -19,7 +19,7 @@
       (swap! app-state assoc-in [:timers expiry] seconds-remaining))))
 
 (defn update-counters []
-  (doseq [expiry (keys @app-state)]
+  (doseq [expiry (keys (:timers @app-state))]
     (update-counter expiry)))
 
 (defn start-timer []
@@ -53,7 +53,7 @@
           [:p "Simple Timers!"]
           (when (nil? (:time-master data))
             (button "Take Control" take-control))
-          (if (= me (:time-master data))
+          (when (= me (:time-master data))
             [:div
              (n-minute-button 0.1)
              (n-minute-button 1)
