@@ -23267,7 +23267,7 @@ hangout_timer.core.increment_timer = function() {
     return function() {
       var a = function(a) {
         cljs.core.println.call(null, gapi.hangout.data.getState());
-        return hangout_timer.core.submit_delta.call(null, cljs.core.merge.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "me", "me", -139006693), hangout_timer.core.me], null), cljs.core.deref.call(null, hangout_timer.core.app_state)));
+        return hangout_timer.core.submit_delta.call(null, {aseot:5});
       }, b = function(b) {
         var d = null;
         0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -23284,6 +23284,7 @@ hangout_timer.core.increment_timer = function() {
   }(a));
 };
 hangout_timer.core.main = function() {
+  cljs.core.println.call(null, hangout_timer.core.me);
   hangout_timer.core.start_timer.call(null);
   hangout_timer.core.increment_timer.call(null);
   return om.core.root.call(null, hangout_timer.core.widget, hangout_timer.core.app_state, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "target", "target", 253001721), document.body], null));
