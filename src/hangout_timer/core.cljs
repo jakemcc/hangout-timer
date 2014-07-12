@@ -32,8 +32,8 @@
 
 (defn button [label action]
   [:button
-   {:on-click action}]
-  label)
+   {:on-click action}
+   label])
 
 (defn n-minute-button [n]
   (button (str n "minutes")
