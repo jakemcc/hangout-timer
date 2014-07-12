@@ -26,7 +26,7 @@
                        :release {:source-paths ["src"]
                                  :compiler {
                                             :output-to "prod-main.js"
-                                            :optimizations :advanced
+                                            :optimizations :whitespace
                                             :pretty-print false
                                             :preamble ["react/react.min.js"]
                                             :externs ["react/externs/react.js" "hangout.js"]
