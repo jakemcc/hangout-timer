@@ -23257,9 +23257,9 @@ hangout_timer.core.widget = function widget(b) {
 };
 hangout_timer.core.submit_delta = function(a) {
   cljs.core.println.call(null, "sending data");
-  gapi.hangout.data.submitDelta(cljs.core.reduce_kv.call(null, function(a, c, d) {
+  gapi.hangout.data.submitDelta(hangout_timer.core.cljs__GT_js.call(null, cljs.core.reduce_kv.call(null, function(a, c, d) {
     return cljs.core.assoc.call(null, a, "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(c), "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(d));
-  }, cljs.core.PersistentArrayMap.EMPTY, a));
+  }, cljs.core.PersistentArrayMap.EMPTY, a)));
   return cljs.core.println.call(null, "sent data");
 };
 hangout_timer.core.increment_timer = function() {
