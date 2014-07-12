@@ -9,8 +9,6 @@
 
 (def me (uuid/make-random))
 
-(defn submit-delta [m]
-  (gapi.hangout.data/submitDelta m))
 
 (def app-state (atom {}))
 
@@ -48,6 +46,11 @@
           (n-minute-button 1)
           (n-minute-button 3)
           ])))
+
+(defn submit-delta [m]
+  (println "sending data")
+  (.submitDelta gapi.hangout.data m)
+  (println "sent data"))
 
 (defn increment-timer []
   (let [timer (goog.Timer. 2000)]
