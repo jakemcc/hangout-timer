@@ -57,7 +57,7 @@
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
                                            (println (.getState gapi.hangout.data))
-                                           (submit-delta #js {me 5})))))
+                                           (submit-delta #js {"aseot" 5})))))
 
 (defn ^:export main []
   (println me)

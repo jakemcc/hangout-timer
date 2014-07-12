@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e 
+
 lein cljsbuild clean
 lein cljsbuild once release
 tmpdir=$(mktemp -d /tmp/ht.XXXX)
