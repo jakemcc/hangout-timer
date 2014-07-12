@@ -49,7 +49,7 @@
 
 (defn submit-delta [m]
   (println "sending data")
-  (.submitDelta gapi.hangout.data m)
+  (.submitDelta gapi.hangout.data (reduce-kv (fn [r k v] (assoc r (str k) (str v))) {} m))
   (println "sent data"))
 
 (defn increment-timer []
@@ -57,7 +57,7 @@
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
                                            (println (.getState gapi.hangout.data))
-                                           (submit-delta #js {"aseot" 5})))))
+                                           (submit-delta {"aseot" 5})))))
 
 (defn ^:export main []
   (println me)
