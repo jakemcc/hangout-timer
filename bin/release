@@ -1,6 +1,5 @@
 #!/bin/bash
 
-lein cljsbuild clean once release
 tmpdir=$(mktemp -d /tmp/ht.XXXX)
 cp index.html prod-main.js ${tmpdir}
 git checkout gh-pages
