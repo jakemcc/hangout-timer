@@ -1,5 +1,6 @@
 (ns hangout-timer.core
   (:require [om.core :as om :include-macros true]
+            [cljs.reader :as reader]
             [sablono.core :as html :refer-macros [html]]
             [goog.Timer :as gtimer]
             [goog.events :as events]
@@ -52,13 +53,13 @@
   (println "sent data"))
 
 (defn read-data []
-  (read-string (.getValue gapi.hangout.data "cljs")))
+  (reader/read-string (.getValue gapi.hangout.data "cljs")))
 
 (defn increment-timer []
   (let [timer (goog.Timer. 2000)]
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
-                                           (println (read-sting))
+                                           (println (read-data))
                                            (submit-delta {"aseot" 5})))))
 
 (defn ^:export main []
