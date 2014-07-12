@@ -12,22 +12,36 @@
   (let [seconds-remaining (max 0 (quot (- expiry (goog.now)) 1000))]
     (swap! app-state assoc expiry seconds-remaining)))
 
-(defn start-timer [expiry]
+(defn update-counters []
+  (doseq [expiry (keys @app-state)]
+    (update-counter expiry)))
+
+(defn start-timer []
   (let [timer (goog.Timer. 333)]
-    (update-counter expiry)
-    (events/listen timer goog.Timer/TICK (partial update-counter expiry))
-    (.start timer)))
+    (.start timer)
+    (events/listen timer goog.Timer/TICK (partial update-counters))))
+
+(defn now-plus-n-minutes [n]
+  (+ (* n 60 1000) (goog.now)))
+
+(defn n-minute-button [n]
+  [:button
+   {:on-click (fn [e]
+                (println "Starting" n "minute timer")
+                (update-counter (now-plus-n-minutes n)))}
+   (str n " minutes")])
 
 (defn widget [data]
   (om/component
    (html [:div
           [:p "Simple Timers!"]
           [:p (pr-str data)]
-          [:button
-           {:on-click (fn [e]
-                        (println "Starting 3 minute timer")
-                        (start-timer (+ (* 3 60 1000) (goog.now))))}
-           "3 minutes"]])))
+          (n-minute-button 1)
+          (n-minute-button 3)
+          ])))
 
-(om/root widget app-state {:target js/document.body})
+(defn ^:export main []
+  (start-timer)
+  (om/root widget app-state {:target js/document.body}))
 
+(main)
