@@ -48,15 +48,17 @@
           ])))
 
 (defn submit-delta [m]
-  (println "sending data")
   (.setValue gapi.hangout.data "cljs" (pr-str m))
   (println "sent data"))
+
+(defn read-data []
+  (read-string (.getValue gapi.hangout.data "cljs")))
 
 (defn increment-timer []
   (let [timer (goog.Timer. 2000)]
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
-                                           (println (.getState gapi.hangout.data))
+                                           (println (read-sting))
                                            (submit-delta {"aseot" 5})))))
 
 (defn ^:export main []
