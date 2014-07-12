@@ -23903,8 +23903,7 @@ hangout_timer.core.increment_timer = function() {
   return goog.events.listen(a, goog.Timer.TICK, function(a) {
     return function() {
       var a = function(a) {
-        cljs.core.println.call(null, hangout_timer.core.read_data.call(null));
-        return hangout_timer.core.submit_delta.call(null, new cljs.core.PersistentArrayMap(null, 1, ["aseot", 5], null));
+        return hangout_timer.core.submit_delta.call(null, new cljs.core.PersistentArrayMap(null, 1, ["aseot", hangout_timer.core.me], null));
       }, b = function(b) {
         var d = null;
         0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
