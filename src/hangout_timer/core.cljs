@@ -46,5 +46,3 @@
 (defn ^:export main []
   (start-timer)
   (om/root widget app-state {:target js/document.body}))
-
-(main)

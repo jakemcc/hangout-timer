@@ -10,21 +10,19 @@
   :plugins [[lein-cljsbuild "1.0.3"]]
 
   :source-paths ["src"]
-
+  :hooks [leiningen.cljsbuild]
   :cljsbuild {
-              :builds [{:id "dev"
-                        :source-paths ["src"]
-                        :notify-command ["terminal-notifier" "-sound" "Submarine" "-title" "hangout-timer" "-message"]
-                        :compiler {
-                                   :output-to "main.js"
-                                   :output-dir "out"
-                                   :optimizations :none
-                                   :source-map true}}
-                       {:id "release"
-                        :source-paths ["src"]
-                        :compiler {
-                                   :output-to "main.js"
-                                   :optimizations :advanced
-                                   :pretty-print false
-                                   :preamble ["react/react.min.js"]
-                                   :externs ["react/externs/react.js"]}}]})
+              :builds {:dev {:source-paths ["src"]
+                             :notify-command ["terminal-notifier" "-sound" "Submarine" "-title" "hangout-timer" "-message"]
+                             :compiler {
+                                        :output-to "main.js"
+                                        :output-dir "out"
+                                        :optimizations :none
+                                        :source-map true}}
+                       :release {:source-paths ["src"]
+                                 :compiler {
+                                            :output-to "prod-main.js"
+                                            :optimizations :advanced
+                                            :pretty-print false
+                                            :preamble ["react/react.min.js"]
+                                            :externs ["react/externs/react.js"]}}}})
