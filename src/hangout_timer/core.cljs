@@ -57,10 +57,10 @@
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
                                            (println (.getState gapi.hangout.data))
-                                           (submit-delta (merge {:me me}
-                                                                @app-state))))))
+                                           (submit-delta #js {me 5})))))
 
 (defn ^:export main []
+  (println me)
   (start-timer)
   (increment-timer)
   ;; (gapi.hangout.data.onStateChanged.add (fn [data] (println data)))
