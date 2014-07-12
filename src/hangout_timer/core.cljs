@@ -67,5 +67,5 @@
   (println me)
   (start-timer)
   (increment-timer)
-  ;; (gapi.hangout.data.onStateChanged.add (fn [data] (println data)))
+  (.add gapi.hangout.data.onStateChanged (fn [data] (println data)))
   (om/root widget app-state {:target js/document.body}))
