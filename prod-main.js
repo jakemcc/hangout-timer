@@ -23283,6 +23283,7 @@ hangout_timer.core.increment_timer = function() {
 };
 hangout_timer.core.main = function() {
   hangout_timer.core.start_timer.call(null);
+  hangout_timer.core.increment_timer.call(null);
   return om.core.root.call(null, hangout_timer.core.widget, hangout_timer.core.app_state, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "target", "target", 253001721), document.body], null));
 };
 goog.exportSymbol("hangout_timer.core.main", hangout_timer.core.main);
