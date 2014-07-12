@@ -23256,9 +23256,11 @@ hangout_timer.core.widget = function widget(b) {
   return new hangout_timer.core.t6538(b, widget, null);
 };
 hangout_timer.core.submit_delta = function(a) {
-  cljs.core.println.call(null, "sending data");
   gapi.hangout.data.setValue("cljs", cljs.core.pr_str.call(null, a));
   return cljs.core.println.call(null, "sent data");
+};
+hangout_timer.core.read_data = function() {
+  return hangout_timer.core.read_string.call(null, gapi.hangout.data.getValue("cljs"));
 };
 hangout_timer.core.increment_timer = function() {
   var a = new goog.Timer(2E3);
@@ -23266,7 +23268,7 @@ hangout_timer.core.increment_timer = function() {
   return goog.events.listen(a, goog.Timer.TICK, function(a) {
     return function() {
       var a = function(a) {
-        cljs.core.println.call(null, gapi.hangout.data.getState());
+        cljs.core.println.call(null, hangout_timer.core.read_sting.call(null));
         return hangout_timer.core.submit_delta.call(null, new cljs.core.PersistentArrayMap(null, 1, ["aseot", 5], null));
       }, b = function(b) {
         var d = null;
