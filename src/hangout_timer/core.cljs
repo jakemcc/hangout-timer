@@ -53,11 +53,11 @@
   (let [timer (goog.Timer. 2000)]
     (.start timer)
     (events/listen timer goog.Timer/TICK (fn [& _]
+                                           (println (.getState gapi.hangout.data))
                                            (submit-delta (merge {:me me}
-                                                                @app-state)))))
-  )
+                                                                @app-state))))))
 
 (defn ^:export main []
   (start-timer)
-  (gapi.hangout.data.onStateChanged.add (fn [data] (println data)))
+  ;; (gapi.hangout.data.onStateChanged.add (fn [data] (println data)))
   (om/root widget app-state {:target js/document.body}))
