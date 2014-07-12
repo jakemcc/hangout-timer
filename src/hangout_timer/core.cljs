@@ -59,5 +59,5 @@
 
 (defn ^:export main []
   (start-timer)
-  (gapi.hangout.data.onStateChanged/add (fn [data] (println data)))
+  (gapi.hangout.data.onStateChanged.add (fn [data] (println data)))
   (om/root widget app-state {:target js/document.body}))
