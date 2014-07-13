@@ -8,7 +8,7 @@
 
 (enable-console-print!)
 
-(def me (uuid/make-random))
+(def me (.-id (.-person (.getLocalParticipant gapi.hangout))))
 
 (def app-state (atom {:timers []}))
 
