@@ -10,17 +10,21 @@
 
 (def me (uuid/make-random))
 
-(def app-state (atom {}))
+(def app-state (atom {:timers []}))
 
-(defn update-counter [expiry]
-  (let [seconds-remaining (max 0 (quot (- expiry (goog.now)) 1000))]
-    (if (zero? seconds-remaining)
-      (swap! app-state update-in [:timers] dissoc expiry)
-      (swap! app-state assoc-in [:timers expiry] seconds-remaining))))
+(defn read-data []
+  (let [d (reader/read-string (.getValue gapi.hangout.data "cljs"))]
+    (println d)
+    d))
+
+(defn submit-data [m]
+  (.setValue gapi.hangout.data "cljs" (pr-str m)))
+
+(defn seconds-remaining [expiry]
+  (max 0 (quot (- expiry (goog.now)) 1000)))
 
 (defn update-counters []
-  (doseq [expiry (keys (:timers @app-state))]
-    (update-counter expiry)))
+  (swap! app-state assoc :timers (map seconds-remaining (:expiries (read-data)))))
 
 (defn start-timer []
   (let [timer (goog.Timer. 333)]
@@ -31,21 +35,22 @@
   (+ (* n 60 1000) (goog.now)))
 
 (defn button [label action]
-  [:button
-   {:on-click action}
-   label])
+  [:button {:on-click action} label])
 
 (defn n-minute-button [n]
   (button (str n "minutes")
           (fn [e]
             (println "Starting" n "minute timer")
-            (update-counter (now-plus-n-minutes n)))))
+            (submit-data (update-in (read-data) :expiries conj (now-plus-n-minutes n))))))
 
-(defn take-control [& _]
-  (swap! app-state assoc :time-master me))
+(defn take-control [& _] ; try not doing this arguments
+  (submit-data (assoc (read-data) :time-master me))
+  ;(swap! app-state assoc :time-master me)
+  )
 
 (defn relinquish-control [& _]
-  (swap! app-state dissoc :time-master))
+  (when (= me (:time-master (read-data)))
+    (submit-data (dissoc (read-data) :time-master))))
 
 (defn widget [data]
   (om/component
@@ -62,21 +67,8 @@
           (for [t (vals (:timers data))]
             [:p (pr-str t)])])))
 
-(defn submit-data [m]
-  (.setValue gapi.hangout.data "cljs" (pr-str m)))
-
-(defn read-data []
-  (reader/read-string (.getValue gapi.hangout.data "cljs")))
-
-(defn publish-timer []
-  (let [timer (goog.Timer. 500)]
-    (.start timer)
-    (events/listen timer goog.Timer/TICK (fn [& _]
-                                           (when (= me (:time-master @app-state))
-                                             (submit-data @app-state))))))
-
 (defn ^:export main []
   (start-timer)
-  (publish-timer)
-  (.add gapi.hangout.data.onStateChanged (fn [data] (reset! app-state (read-data))))
+  (.add gapi.hangout.data.onStateChanged (fn [data]
+                                           (swap! app-state assoc :time-master (:time-master (read-data)))))
   (om/root widget app-state {:target js/document.body}))
