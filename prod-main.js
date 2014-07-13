@@ -23815,7 +23815,7 @@ hangout_timer.core.read_data = function() {
   }());
 };
 hangout_timer.core.submit_data = function(a) {
-  return gapi.hangout.data.setValue("cljs", cljs.core.pr_str.call(null, a));
+  return gapi.hangout.data.submitDelta({cljs:cljs.core.pr_str.call(null, a)});
 };
 hangout_timer.core.seconds_remaining = function(a) {
   a = cljs.core.quot.call(null, a - goog.now(), 1E3);
