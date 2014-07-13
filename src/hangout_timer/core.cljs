@@ -68,7 +68,7 @@
              (n-minute-button 1)
              (n-minute-button 3)
              (button "Relinquish control" relinquish-control)])
-          (for [t (vals (:timers data))]
+          (for [t (:timers data)]
             [:p (pr-str t)])])))
 
 (defn ^:export main []
