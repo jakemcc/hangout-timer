@@ -27,7 +27,10 @@
   (max 0 (quot (- expiry (goog.now)) 1000)))
 
 (defn update-counters []
-  (swap! app-state assoc :timers (map seconds-remaining (:expiries (read-data)))))
+  (let [shared-data (read-data)]
+    (swap! app-state assoc
+           :timers (map seconds-remaining (:expiries shared-data))
+           :time-master (:time-master shared-data))))
 
 (defn start-timer []
   (let [timer (goog.Timer. 333)]
@@ -47,9 +50,7 @@
             (submit-data (update-in (read-data) :expiries conj (now-plus-n-minutes n))))))
 
 (defn take-control [& _] ; try not doing this arguments
-  (submit-data (assoc (read-data) :time-master me))
-  ;(swap! app-state assoc :time-master me)
-  )
+  (submit-data (assoc (read-data) :time-master me)))
 
 (defn relinquish-control [& _]
   (when (= me (:time-master (read-data)))
