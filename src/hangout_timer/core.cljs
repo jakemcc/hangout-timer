@@ -9,7 +9,9 @@
 (enable-console-print!)
 
 (defn me []
-  (.-id (.-person (.getLocalParticipant gapi.hangout))))
+  (let [participant (.getLocalParticipant gapi.hangout)]
+    (str (.-id (.-person participant)) "_"
+         (.-displayName (.-person participant)))))
 
 (def app-state (atom {:timers []}))
 
