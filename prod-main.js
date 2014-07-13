@@ -23947,6 +23947,7 @@ hangout_timer.core.widget = function widget(b) {
   return new hangout_timer.core.t6561(b, widget, null);
 };
 hangout_timer.core.main = function() {
+  cljs.core.println.call(null, "Me:", hangout_timer.core.me.call(null));
   hangout_timer.core.start_timer.call(null);
   gapi.hangout.data.onStateChanged.add(function(a) {
     return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null)));
