@@ -8,12 +8,15 @@
 
 (enable-console-print!)
 
+(defn participant []
+  (.getLocalParticipant gapi.hangout))
+
 (defn me []
-  (let [participant (.getLocalParticipant gapi.hangout)]
-    (str (.-id (.-person participant)) "_"
-         (.-displayName (.-person participant)))))
+  (let [participant (participant)]
+    (str (.-id (.-person participant)) "_" (.-displayName (.-person participant)))))
 
 (def app-state (atom {:timers []}))
+(def shared-state (atom {}))
 
 (defn dbg [x]
   (println x)
@@ -29,16 +32,15 @@
 (defn seconds-remaining [expiry]
   (max 0 (quot (- expiry (goog.now)) 1000)))
 
-(defn update-counters []
-  (let [shared-data (read-data)]
-    (swap! app-state assoc
-           :timers (map seconds-remaining (:expiries shared-data))
-           :time-master (:time-master shared-data))))
+(defn update-timers []
+  (swap! app-state assoc
+         :timers (map seconds-remaining (:expiries @shared-state))
+         :time-master (:time-master @shared-state)))
 
 (defn start-timer []
   (let [timer (goog.Timer. 333)]
     (.start timer)
-    (events/listen timer goog.Timer/TICK (partial update-counters))))
+    (events/listen timer goog.Timer/TICK (partial update-timers))))
 
 (defn now-plus-n-minutes [n]
   (+ (* n 60 1000) (goog.now)))
@@ -79,9 +81,12 @@
           (for [t (:timers data)]
             [:p (pr-str t)])])))
 
+(defn update-state [new-state]
+  (reset! shared-state new-state)
+  (swap! app-state assoc :time-master (:time-master new-state)))
+
 (defn ^:export main []
   (println "Me:" (me))
   (start-timer)
-  (.add gapi.hangout.data.onStateChanged (fn [data]
-                                           (swap! app-state assoc :time-master (:time-master (read-data)))))
+  (.add gapi.hangout.data.onStateChanged (fn [data] (update-state (read-data))))
   (om/root widget app-state {:target js/document.body}))
