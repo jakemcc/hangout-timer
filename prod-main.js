@@ -23795,11 +23795,15 @@ cljs.reader.deregister_default_tag_parser_BANG_ = function() {
 };
 var hangout_timer = {core:{}};
 cljs.core.enable_console_print_BANG_.call(null);
+hangout_timer.core.participant = function() {
+  return gapi.hangout.getLocalParticipant();
+};
 hangout_timer.core.me = function() {
-  var a = gapi.hangout.getLocalParticipant();
+  var a = hangout_timer.core.participant.call(null);
   return "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.person.id) + "_" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.person.displayName);
 };
 hangout_timer.core.app_state = cljs.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.PersistentVector.EMPTY], null));
+hangout_timer.core.shared_state = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY);
 hangout_timer.core.dbg = function(a) {
   cljs.core.println.call(null, a);
   return a;
@@ -23817,14 +23821,14 @@ hangout_timer.core.seconds_remaining = function(a) {
   a = cljs.core.quot.call(null, a - goog.now(), 1E3);
   return 0 > a ? 0 : a;
 };
-hangout_timer.core.update_counters = function() {
-  var a = hangout_timer.core.read_data.call(null);
-  return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.map.call(null, hangout_timer.core.seconds_remaining, (new cljs.core.Keyword(null, "expiries", "expiries", 1815457738)).cljs$core$IFn$_invoke$arity$1(a)), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(a));
+hangout_timer.core.update_timers = function() {
+  return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.map.call(null, hangout_timer.core.seconds_remaining, (new cljs.core.Keyword(null, "expiries", "expiries", 1815457738)).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null, hangout_timer.core.shared_state))), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 
+  1348494288)).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null, hangout_timer.core.shared_state)));
 };
 hangout_timer.core.start_timer = function() {
   var a = new goog.Timer(333);
   a.start();
-  return goog.events.listen(a, goog.Timer.TICK, cljs.core.partial.call(null, hangout_timer.core.update_counters));
+  return goog.events.listen(a, goog.Timer.TICK, cljs.core.partial.call(null, hangout_timer.core.update_timers));
 };
 hangout_timer.core.now_plus_n_minutes = function(a) {
   return 6E4 * a + goog.now();
@@ -23856,7 +23860,7 @@ hangout_timer.core.take_control = function() {
 }();
 hangout_timer.core.relinquish_control = function() {
   var a = function(a) {
-    return cljs.core._EQ_.call(null, hangout_timer.core.me.call(null), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null))) ? hangout_timer.core.submit_data.call(null, cljs.core.dissoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288))) : null;
+    return cljs.core._EQ_.call(null, hangout_timer.core.me.call(null), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null, hangout_timer.core.shared_state))) ? hangout_timer.core.submit_data.call(null, cljs.core.dissoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288))) : null;
   }, b = function(b) {
     var d = null;
     0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -23946,11 +23950,16 @@ hangout_timer.core.widget = function widget(b) {
   });
   return new hangout_timer.core.t6561(b, widget, null);
 };
+hangout_timer.core.update_state = function(a) {
+  cljs.core.reset_BANG_.call(null, hangout_timer.core.shared_state, a);
+  return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(a));
+};
 hangout_timer.core.main = function() {
   cljs.core.println.call(null, "Me:", hangout_timer.core.me.call(null));
   hangout_timer.core.start_timer.call(null);
   gapi.hangout.data.onStateChanged.add(function(a) {
-    return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null)));
+    cljs.core.println.call(null, "state changed");
+    return hangout_timer.core.update_state.call(null, hangout_timer.core.read_data.call(null));
   });
   return om.core.root.call(null, hangout_timer.core.widget, hangout_timer.core.app_state, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "target", "target", 253001721), document.body], null));
 };
