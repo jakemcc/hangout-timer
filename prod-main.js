@@ -23795,7 +23795,9 @@ cljs.reader.deregister_default_tag_parser_BANG_ = function() {
 };
 var hangout_timer = {core:{}};
 cljs.core.enable_console_print_BANG_.call(null);
-hangout_timer.core.me = gapi.hangout.getLocalParticipant();
+hangout_timer.core.me = function() {
+  return gapi.hangout.getLocalParticipant();
+};
 hangout_timer.core.app_state = cljs.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.PersistentVector.EMPTY], null));
 hangout_timer.core.dbg = function(a) {
   cljs.core.println.call(null, a);
@@ -23837,7 +23839,7 @@ hangout_timer.core.n_minute_button = function(a) {
 };
 hangout_timer.core.take_control = function() {
   var a = function(a) {
-    return hangout_timer.core.submit_data.call(null, cljs.core.assoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), hangout_timer.core.me));
+    return hangout_timer.core.submit_data.call(null, cljs.core.assoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), hangout_timer.core.me.call(null)));
   }, b = function(b) {
     var d = null;
     0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -23853,7 +23855,7 @@ hangout_timer.core.take_control = function() {
 }();
 hangout_timer.core.relinquish_control = function() {
   var a = function(a) {
-    return cljs.core._EQ_.call(null, hangout_timer.core.me, (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null))) ? hangout_timer.core.submit_data.call(null, cljs.core.dissoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288))) : null;
+    return cljs.core._EQ_.call(null, hangout_timer.core.me.call(null), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null))) ? hangout_timer.core.submit_data.call(null, cljs.core.dissoc.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288))) : null;
   }, b = function(b) {
     var d = null;
     0 < arguments.length && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -23894,7 +23896,7 @@ hangout_timer.core.widget = function widget(b) {
     return cljs.core._write.call(null, d, "hangout-timer.core/t6561");
   }, hangout_timer.core.t6561.prototype.om$core$IRender$ = !0, hangout_timer.core.t6561.prototype.om$core$IRender$render$arity$1 = function(b) {
     var d = this, e = this;
-    return React.DOM.div(null, React.DOM.p(null, "Simple Timers!"), sablono.interpreter.interpret.call(null, null == (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(d.data) ? hangout_timer.core.button.call(null, "Take Control", hangout_timer.core.take_control) : null), sablono.interpreter.interpret.call(null, cljs.core._EQ_.call(null, hangout_timer.core.me, (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(d.data)) ? 
+    return React.DOM.div(null, React.DOM.p(null, "Simple Timers!"), sablono.interpreter.interpret.call(null, null == (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(d.data) ? hangout_timer.core.button.call(null, "Take Control", hangout_timer.core.take_control) : null), sablono.interpreter.interpret.call(null, cljs.core._EQ_.call(null, hangout_timer.core.me.call(null), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(d.data)) ? 
     new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), hangout_timer.core.n_minute_button.call(null, .1), hangout_timer.core.n_minute_button.call(null, 1), hangout_timer.core.n_minute_button.call(null, 3), hangout_timer.core.button.call(null, "Relinquish control", hangout_timer.core.relinquish_control), hangout_timer.core.button.call(null, "Clear timers", hangout_timer.core.clear_timers)], null) : null), cljs.core.into_array.call(null, 
     function() {
       return function(b) {
