@@ -23796,7 +23796,8 @@ cljs.reader.deregister_default_tag_parser_BANG_ = function() {
 var hangout_timer = {core:{}};
 cljs.core.enable_console_print_BANG_.call(null);
 hangout_timer.core.me = function() {
-  return gapi.hangout.getLocalParticipant();
+  var a = gapi.hangout.getLocalParticipant();
+  return "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.person.id) + "_" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a.person.displayName);
 };
 hangout_timer.core.app_state = cljs.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.PersistentVector.EMPTY], null));
 hangout_timer.core.dbg = function(a) {
