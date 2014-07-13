@@ -47,7 +47,7 @@
   (button (str n "minutes")
           (fn [e]
             (println "Starting" n "minute timer")
-            (submit-data (update-in (read-data) :expiries conj (now-plus-n-minutes n))))))
+            (submit-data (update-in (read-data) [:expiries] conj (now-plus-n-minutes n))))))
 
 (defn take-control [& _] ; try not doing this arguments
   (submit-data (assoc (read-data) :time-master me)))
