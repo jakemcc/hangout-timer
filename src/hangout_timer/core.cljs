@@ -56,6 +56,9 @@
   (when (= me (:time-master (read-data)))
     (submit-data (dissoc (read-data) :time-master))))
 
+(defn clear-timers [& _]
+  (submit-data (dissoc (read-data) :expiries)))
+
 (defn widget [data]
   (om/component
    (html [:div
@@ -67,7 +70,9 @@
              (n-minute-button 0.1)
              (n-minute-button 1)
              (n-minute-button 3)
-             (button "Relinquish control" relinquish-control)])
+             (button "Relinquish control" relinquish-control)
+             (button "Clear timers" clear-timers)
+             ])
           (for [t (:timers data)]
             [:p (pr-str t)])])))
 
