@@ -8,7 +8,7 @@
 
 (enable-console-print!)
 
-(def me (.-id (.-person (.getLocalParticipant gapi.hangout))))
+(def me (.getLocalParticipant gapi.hangout))
 
 (def app-state (atom {:timers []}))
 
