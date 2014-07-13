@@ -23797,10 +23797,15 @@ var hangout_timer = {core:{}};
 cljs.core.enable_console_print_BANG_.call(null);
 hangout_timer.core.me = cljs_uuid.core.make_random.call(null);
 hangout_timer.core.app_state = cljs.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.PersistentVector.EMPTY], null));
-hangout_timer.core.read_data = function() {
-  var a = cljs.reader.read_string.call(null, gapi.hangout.data.getValue("cljs"));
+hangout_timer.core.dbg = function(a) {
   cljs.core.println.call(null, a);
   return a;
+};
+hangout_timer.core.read_data = function() {
+  return hangout_timer.core.dbg.call(null, function() {
+    var a = gapi.hangout.data.getValue("cljs");
+    return cljs.core.truth_(a) ? cljs.reader.read_string.call(null, a) : null;
+  }());
 };
 hangout_timer.core.submit_data = function(a) {
   return gapi.hangout.data.setValue("cljs", cljs.core.pr_str.call(null, a));
