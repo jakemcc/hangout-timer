@@ -12,10 +12,13 @@
 
 (def app-state (atom {:timers []}))
 
+(defn dbg [x]
+  (println x)
+  x)
+
 (defn read-data []
-  (let [d (reader/read-string (.getValue gapi.hangout.data "cljs"))]
-    (println d)
-    d))
+  (dbg (when-let [raw (.getValue gapi.hangout.data "cljs")]
+         (reader/read-string raw))))
 
 (defn submit-data [m]
   (.setValue gapi.hangout.data "cljs" (pr-str m)))
