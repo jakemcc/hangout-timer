@@ -8,7 +8,8 @@
 
 (enable-console-print!)
 
-(def me (.getLocalParticipant gapi.hangout))
+(defn me []
+  (.getLocalParticipant gapi.hangout))
 
 (def app-state (atom {:timers []}))
 
@@ -50,10 +51,10 @@
             (submit-data (update-in (read-data) [:expiries] conj (now-plus-n-minutes n))))))
 
 (defn take-control [& _] ; try not doing this arguments
-  (submit-data (assoc (read-data) :time-master me)))
+  (submit-data (assoc (read-data) :time-master (me))))
 
 (defn relinquish-control [& _]
-  (when (= me (:time-master (read-data)))
+  (when (= (me) (:time-master (read-data)))
     (submit-data (dissoc (read-data) :time-master))))
 
 (defn clear-timers [& _]
@@ -65,7 +66,7 @@
           [:p "Simple Timers!"]
           (when (nil? (:time-master data))
             (button "Take Control" take-control))
-          (when (= me (:time-master data))
+          (when (= (me) (:time-master data))
             [:div
              (n-minute-button 0.1)
              (n-minute-button 1)
