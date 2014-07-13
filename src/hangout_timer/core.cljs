@@ -80,6 +80,7 @@
             [:p (pr-str t)])])))
 
 (defn ^:export main []
+  (println "Me:" (me))
   (start-timer)
   (.add gapi.hangout.data.onStateChanged (fn [data]
                                            (swap! app-state assoc :time-master (:time-master (read-data)))))
