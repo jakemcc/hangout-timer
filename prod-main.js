@@ -23915,7 +23915,7 @@ hangout_timer.core.widget = function widget(b) {
             };
           }(b), null, null);
         };
-      }(e).call(null, cljs.core.vals.call(null, (new cljs.core.Keyword(null, "timers", "timers", 2066701583)).cljs$core$IFn$_invoke$arity$1(d.data)));
+      }(e).call(null, (new cljs.core.Keyword(null, "timers", "timers", 2066701583)).cljs$core$IFn$_invoke$arity$1(d.data));
     }()));
   }, hangout_timer.core.t6560.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
     return this.meta6561;
