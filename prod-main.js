@@ -23820,8 +23820,7 @@ hangout_timer.core.submit_data = function(a) {
   return gapi.hangout.data.submitDelta({cljs:cljs.core.pr_str.call(null, a)});
 };
 hangout_timer.core.seconds_remaining = function(a) {
-  a = cljs.core.quot.call(null, a - goog.now(), 1E3);
-  return 0 > a ? 0 : a;
+  return cljs.core.quot.call(null, a - goog.now(), 1E3);
 };
 hangout_timer.core.update_timers = function() {
   return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.map.call(null, hangout_timer.core.seconds_remaining, hangout_timer.core.expiries.call(null)));
