@@ -23832,7 +23832,7 @@ hangout_timer.core.button = function(a, b) {
 hangout_timer.core.n_minute_button = function(a) {
   return hangout_timer.core.button.call(null, "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(a) + "minutes", function(b) {
     cljs.core.println.call(null, "Starting", a, "minute timer");
-    return hangout_timer.core.submit_data.call(null, cljs.core.update_in.call(null, hangout_timer.core.read_data.call(null), new cljs.core.Keyword(null, "expiries", "expiries", 1815457738), cljs.core.conj, hangout_timer.core.now_plus_n_minutes.call(null, a)));
+    return hangout_timer.core.submit_data.call(null, cljs.core.update_in.call(null, hangout_timer.core.read_data.call(null), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "expiries", "expiries", 1815457738)], null), cljs.core.conj, hangout_timer.core.now_plus_n_minutes.call(null, a)));
   });
 };
 hangout_timer.core.take_control = function() {
