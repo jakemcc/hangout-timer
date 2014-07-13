@@ -23815,7 +23815,8 @@ hangout_timer.core.seconds_remaining = function(a) {
   return 0 > a ? 0 : a;
 };
 hangout_timer.core.update_counters = function() {
-  return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.map.call(null, hangout_timer.core.seconds_remaining, (new cljs.core.Keyword(null, "expiries", "expiries", 1815457738)).cljs$core$IFn$_invoke$arity$1(hangout_timer.core.read_data.call(null))));
+  var a = hangout_timer.core.read_data.call(null);
+  return cljs.core.swap_BANG_.call(null, hangout_timer.core.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "timers", "timers", 2066701583), cljs.core.map.call(null, hangout_timer.core.seconds_remaining, (new cljs.core.Keyword(null, "expiries", "expiries", 1815457738)).cljs$core$IFn$_invoke$arity$1(a)), new cljs.core.Keyword(null, "time-master", "time-master", 1348494288), (new cljs.core.Keyword(null, "time-master", "time-master", 1348494288)).cljs$core$IFn$_invoke$arity$1(a));
 };
 hangout_timer.core.start_timer = function() {
   var a = new goog.Timer(333);
